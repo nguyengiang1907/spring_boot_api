@@ -52,14 +52,14 @@ public class ProductController {
         }
         return new ResponseEntity<>(products,HttpStatus.OK);
     }
-//    @GetMapping("/searchCategory/{category}")
-//    public ResponseEntity<Iterable<Product>> searchByCategory(@RequestParam("id") String category){
-//        List<Product> products = (List<Product>) iProductService.searchByCategory(id);
-//        if (products.isEmpty()){
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(products,HttpStatus.OK);
-//    }
+    @GetMapping("/searchCategory/{name}")
+    public ResponseEntity<Iterable<Product>> searchByCategory(@PathVariable String name){
+        List<Product> products = (List<Product>) iProductService.searchByCategory(name);
+        if (products.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(products,HttpStatus.OK);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Product> findById(@PathVariable("id") Long id){
         Optional<Product> productOptional = iProductService.findById(id);

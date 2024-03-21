@@ -46,7 +46,7 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public Iterable<Product> searchByCategory(int id) {
-        return iProductRepository.searchByCategory(id);
+    public Iterable<Product> searchByCategory(String name) {
+        return iProductRepository.searchByCategory("%"+name+"%");
     }
 }

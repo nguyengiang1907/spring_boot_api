@@ -12,5 +12,5 @@ public interface IProductService {
     Iterable<Product> search(int price);
     Iterable<Product> arrangePrice();
     Iterable<Product> arrangePriceTop();
-    Iterable<Product> searchByCategory(int id);
+    Iterable<Product> searchByCategory(String name);
 }

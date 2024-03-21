@@ -12,5 +12,6 @@ public interface IProductRepository extends JpaRepository<Product,Long> {
     Iterable<Product> arrangePrice();
     @Query("SELECT p FROM Product p ORDER BY p.price DESC LIMIT 3")
     Iterable<Product> arrangePriceTop();
-    Iterable<Product> findByCategoryName(String name);
+    @Query("SELECT p FROM Product p WHERE p.category.name LIKE ?1")
+    Iterable<Product> searchByCategory(String name);
 }
